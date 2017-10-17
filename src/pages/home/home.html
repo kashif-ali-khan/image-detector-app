@@ -1,14 +1,28 @@
-<ion-header>
-  <ion-navbar>
+<ion-header class="header-height">
+  <ion-navbar align-title="center">
     <ion-title>
-      Ionic Blank
+     Home
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content  class="full-height">
+ <!--<ul>
+   <li  [navPush]="weeddetect">Identify Weed</li>
+   <li  [navPush]="pestdetect">Identify Pest</li>
+ 
+   <li [navPush]="aboutPage">About US</li>
+   <li [navPush]="contactus" >Contact Us</li>
+ </ul>-->
+
+
+   <ul class="main-content">
+     <li class="li-height bg1" [navPush]="weeddetect"><div>Identify Weed</div> <div class="arrow-icon"></div></li>
+     <li class="li-height bg2" [navPush]="pestdetect"><div>Identify Pest</div> <div class="arrow-icon"></div></li>
+     <li class="li-height bg3" [navPush]="aboutPage"><div>About Us</div> <div class="arrow-icon"></div></li>
+     <li class="li-height bg4" [navPush]="contactus"><div>Contact Us</div> <div class="arrow-icon"></div></li>
+   </ul>
+  
+
+
 </ion-content>
