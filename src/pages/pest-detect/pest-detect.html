@@ -15,4 +15,12 @@
 
 <ion-content padding>
 THis is pest detect screen
+
+
+  <button class="btn-primary" (click)="openCamera()">Take Picture</button>
+
+
+  <img *ngIf="base64Image" [src]="base64Image"/>
+
+
 </ion-content>

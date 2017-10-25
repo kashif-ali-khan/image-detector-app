@@ -1,6 +1,8 @@
+import { Service } from './../../service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import {Observable} from 'rxjs/Rx';
 
 /**
  * Generated class for the PestDetectPage page.
@@ -13,17 +15,21 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 @Component({
   selector: 'page-pest-detect',
   templateUrl: 'pest-detect.html',
+  providers: [Service]
 })
 
 export class PestDetectPage {
+   imagePath:string;
+  base64Image:string;
    options: CameraOptions = {
-    quality: 100,
+    quality: 50,
     destinationType: this.camera.DestinationType.DATA_URL,
     encodingType: this.camera.EncodingType.JPEG,
-    mediaType: this.camera.MediaType.PICTURE
+    mediaType: this.camera.MediaType.PICTURE,
+    correctOrientation: true
   }
 
-  constructor(private camera: Camera,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private camera: Camera,public navCtrl: NavController, public navParams: NavParams,public loadingCtrl: LoadingController,private service:Service) {
    
   }
 
@@ -31,15 +37,37 @@ export class PestDetectPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PestDetectPage');
-    this.openCamera();
   }
 
   openCamera(){
+    const loading = this.loadingCtrl.create({
+    content: 'Please wait...'
+  });
+
+  loading.present();
     this.camera.getPicture(this.options).then((imageData) => {
-      // imageData is either a base64 encoded string or a file URI
-      // If it's base64:
-      let base64Image = 'data:image/jpeg;base64,' + imageData;
-      //console.log(base64Image);
+      this.base64Image = 'data:image/jpeg;base64,' + imageData;
+      console.log(this.base64Image);
+
+// Function call to fetch API response from server
+let response:Observable<Comment[]>;
+
+       response = this.service.getResponse(this.base64Image)
+console.log("hello")
+
+       response.subscribe(
+                                response => {
+                                    // Emit list event
+                                    console.log(response)
+                                    
+                                }, 
+                                err => {
+                                    // Log errors if any
+                                    console.log(err);
+                                });
+    
+
+      loading.dismiss();
      }, (err) => {
       // Handle error
      });

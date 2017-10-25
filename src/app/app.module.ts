@@ -11,6 +11,7 @@ import { ContactUsPageModule } from '../pages/contact-us/contact-us.module';
 import { PestDetectPageModule } from '../pages/pest-detect/pest-detect.module';
 import { WeedDetectPageModule } from '../pages/weed-detect/weed-detect.module';
 import { Camera } from '@ionic-native/camera';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { Camera } from '@ionic-native/camera';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
     AboutPageModule,
     ContactUsPageModule,
