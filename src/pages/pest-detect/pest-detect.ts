@@ -41,10 +41,11 @@ export class PestDetectPage {
     console.log('ionViewDidLoad PestDetectPage');
   }
 
-  openCamera(flag){
+  openCamera(flag:boolean){
     if(flag == true){
-
       this.options['sourceType'] = this.camera.PictureSourceType.PHOTOLIBRARY
+    }else{
+      delete this.options['sourceType'];
     }
     const loading = this.loadingCtrl.create({
     content: 'Please wait...'
