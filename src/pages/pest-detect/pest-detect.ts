@@ -21,9 +21,11 @@ import {Observable} from 'rxjs/Rx';
 export class PestDetectPage {
    imagePath:string;
   base64Image:string;
+
    options: CameraOptions = {
     quality: 50,
     destinationType: this.camera.DestinationType.DATA_URL,
+    targetHeight: 400,
     encodingType: this.camera.EncodingType.JPEG,
     mediaType: this.camera.MediaType.PICTURE,
     correctOrientation: true
@@ -39,7 +41,12 @@ export class PestDetectPage {
     console.log('ionViewDidLoad PestDetectPage');
   }
 
-  openCamera(){
+  openCamera(flag:boolean){
+    if(flag == true){
+      this.options['sourceType'] = this.camera.PictureSourceType.PHOTOLIBRARY
+    }else{
+      delete this.options['sourceType'];
+    }
     const loading = this.loadingCtrl.create({
     content: 'Please wait...'
   });
@@ -53,7 +60,6 @@ export class PestDetectPage {
 let response:Observable<Comment[]>;
 
        response = this.service.getResponse(this.base64Image)
-console.log("hello")
 
        response.subscribe(
                                 response => {
@@ -66,10 +72,11 @@ console.log("hello")
                                     console.log(err);
                                 });
     
-
+      delete this.options['sourceType']                     
       loading.dismiss();
      }, (err) => {
       // Handle error
+      loading.dismiss();
      });
   }
 
