@@ -22,6 +22,7 @@ export class PestDetectPage {
   imagePath:string;
   base64Image:string;
   pestResponse:any;
+  showResponse:boolean
 
    options: CameraOptions = {
     quality: 50,
@@ -66,16 +67,19 @@ let response:Observable<Comment[]>;
                                 response => {
                                     // Emit list event
                                     console.log(response);
+                                    this.showResponse = true
                                     this.pestResponse = response;
+                                    loading.dismiss();
                                     
                                 }, 
                                 err => {
                                     // Log errors if any
-                                    console.log(err);
+                                    loading.dismiss();
+                                    console.log('err');
                                 });
     
       //delete this.options['sourceType']                     
-      loading.dismiss();
+      
      }, (err) => {
       // Handle error
       loading.dismiss();
