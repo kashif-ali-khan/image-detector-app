@@ -16,9 +16,7 @@ export class Service{
 
    getResponse(body: Object) : Observable<any> {
 
-       console.log("hi")
-
-       let bodyString = JSON.stringify(body); // Stringify payload
+        let bodyString = JSON.stringify(body); // Stringify payload
         let headers      = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
         let options       = new RequestOptions({ headers: headers }); // Create a request option
 

@@ -19,8 +19,9 @@ import {Observable} from 'rxjs/Rx';
 })
 
 export class PestDetectPage {
-   imagePath:string;
+  imagePath:string;
   base64Image:string;
+  pestResponse:any;
 
    options: CameraOptions = {
     quality: 50,
@@ -54,17 +55,18 @@ export class PestDetectPage {
   loading.present();
     this.camera.getPicture(this.options).then((imageData) => {
       this.base64Image = 'data:image/jpeg;base64,' + imageData;
-      console.log(this.base64Image);
+      //console.log(this.base64Image);
 
 // Function call to fetch API response from server
 let response:Observable<Comment[]>;
 
-       response = this.service.getResponse(this.base64Image)
+       response = this.service.getResponse(imageData);
 
        response.subscribe(
                                 response => {
                                     // Emit list event
-                                    console.log(response)
+                                    console.log(response);
+                                    this.pestResponse = response;
                                     
                                 }, 
                                 err => {
@@ -72,7 +74,7 @@ let response:Observable<Comment[]>;
                                     console.log(err);
                                 });
     
-      delete this.options['sourceType']                     
+      //delete this.options['sourceType']                     
       loading.dismiss();
      }, (err) => {
       // Handle error

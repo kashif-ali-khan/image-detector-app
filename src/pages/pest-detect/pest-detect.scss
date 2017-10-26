@@ -1,3 +1,44 @@
 page-pest-detect {
+    .buttons-div{
+        margin: 10px;
+    }
+    .ion-card-pest{
+         background: color($colors, appgreen);
+         color:white;
+         font-size: 15px;
+         font-weight: bold;
+    }
+    .pest-content-title{
+        padding: 0px 16px;
+        font-size: 1.6rem;
+        float: left;
+        display: inline-block;
+        width: 70%;
+
+    }
+    .pest-content{
+        padding: 0px 16px;
+        font-size: 1.6rem;
+        
+       
+        
+            }
+            .pest-sub-content{
+                background: color($colors, appgreen);
+                padding-top: 6px;
+                padding-bottom:6px;
+                margin: 10px;
+            }
+            .pest-title{
+                font-weight: bold;
+            }
+            .pest-image{
+                width: 30%;
+                height: 100px;
+                float: left;
+                clear: both;
+                display: inline-block;
+                padding: 6px;
+            }
 
 }

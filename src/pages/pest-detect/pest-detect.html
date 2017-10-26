@@ -4,29 +4,90 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<!-- <ion-header>
 
   <ion-navbar>
     <ion-title>pest-detect</ion-title>
   </ion-navbar>
 
-</ion-header>
+</ion-header> -->
 
 
 <ion-content padding>
-THis is pest detect screen
+    <ion-card class="ion-card-pest">
+        
+         
+        
+          <ion-card-content>
+            <!-- Add card content here! -->
+            Please pick a picture to identify your weed and get expert suggestion
+          </ion-card-content>
+        
+        </ion-card>
 
-<div>
 
-  <button class="btn-primary" (click)="openCamera()">Take Picture</button>
+
+<div class="buttons-div">
+    <button ion-button icon-right block (click)="openCamera()">
+        Take Picture
+        <ion-icon ios="ios-camera" md="md-camera"></ion-icon>
+      </button>
+
+      <button ion-button icon-right block (click)="openCamera(true)">
+          Choose Picture
+          <ion-icon ios="ios-image" md="md-image"></ion-icon>
+        </button>
+
+
+  <!-- <button class="btn-primary" (click)="openCamera()">Take Picture</button>
   
-    <button class="btn-primary" (click)="openCamera(true)">Choose Picture</button>
+    <button class="btn-primary" (click)="openCamera(true)">Choose Picture</button> -->
 
 </div>
+<div class="pest-sub-content">
+
+
+<ion-card>
+   <img class="pest-image" *ngIf="base64Image" [src]="base64Image"/>
+    <ion-card-content class="pest-content-title">
+      <ion-card-title>
+         This pest identifies as <span class="pest-title"> Septoria Leaf Spot tomato</span>
+      </ion-card-title>
+      <p>
+          
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+     
+       <ion-card-content class="pest-content">
+         <ion-card-title>
+            Description
+         </ion-card-title>
+         <p>
+            Septoria leaf spot caused by a fungus, Septoria lycopersici.   
+         </p>
+       </ion-card-content>
+     </ion-card>
+     <ion-card>
+      
+         <ion-card-content class="pest-content">
+           <ion-card-title>
+              Recomendation
+           </ion-card-title>
+           <p>
+              Treatment - 
+              Organic - Copper spray, biofungicide like Serenade.
+              Chemical - Funginol, Daconil
+           </p>
+         </ion-card-content>
+       </ion-card>
+       </div>
+
+
+
   
-
-
-  <img *ngIf="base64Image" [src]="base64Image"/>
+  <!-- <div>{{pestResponse}}</div> -->
 
 
 </ion-content>
