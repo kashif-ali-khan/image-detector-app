@@ -1,6 +1,6 @@
 import { Service } from './../../service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController,AlertController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import {Observable} from 'rxjs/Rx';
 
@@ -33,7 +33,7 @@ export class PestDetectPage {
     correctOrientation: true
   }
 
-  constructor(private camera: Camera,public navCtrl: NavController, public navParams: NavParams,public loadingCtrl: LoadingController,private service:Service) {
+  constructor(private alertCtrl:AlertController,private camera: Camera,public navCtrl: NavController, public navParams: NavParams,public loadingCtrl: LoadingController,private service:Service) {
    
   }
 
@@ -84,6 +84,51 @@ let response:Observable<Comment[]>;
       // Handle error
       loading.dismiss();
      });
+  }
+
+
+  doOperation(operation:string){
+    
+    let options = {
+      title: 'Login',
+      inputs: [
+        {
+          name: 'username',
+          placeholder: 'Username'
+        },
+        {
+          name: 'password',
+          placeholder: 'Password',
+          type: 'password'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Submit',
+          handler: data => {
+         
+          }
+        }
+      ]
+    }
+
+    if(operation == 'buy'){
+      options.title = "Buy This"
+    }else{
+      options.title = "Submit this pest to Agronomist"
+    }
+    
+      const alert = this.alertCtrl.create(options);
+      alert.present();
+   
+
   }
 
 }

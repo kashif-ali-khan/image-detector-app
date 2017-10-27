@@ -40,5 +40,16 @@ page-pest-detect {
                 display: inline-block;
                 padding: 6px;
             }
+            .submit-to,.buy-to{
+                width: 50%;
+                float: left;
+                display: block;
+                text-align: center;
+               
+            }
+            .submit-to{
+                border-left: 1px solid lightgrey;
+            }
+
 
 }
