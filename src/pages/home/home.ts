@@ -14,10 +14,39 @@ export class HomePage {
   aboutPage = AboutPage;
   contactus = ContactUsPage;
   weeddetect = WeedDetectPage;
-  pestdetect = PestDetectPage
+  pestdetect = PestDetectPage;
+  params: Object;
 
   constructor(public navCtrl: NavController) {
+    
+this.params = {
+  weeds:"weeds",
+  pests:"pests"
+}
+  }
 
+  redirect(option:Number){
+    if(option == 1){
+      this.navCtrl.push(this.pestdetect, {
+        param: 'weeds'
+    });
+
+    }
+      else if(option ==2){
+        this.navCtrl.push(this.pestdetect, {
+          param: 'pests'
+      });
+  
+      }
+      else if(option ==3){
+        this.navCtrl.push(this.aboutPage);
+  
+        
+              }
+              else if(option ==4){
+                this.navCtrl.push(this.contactus);
+                      }
+    
   }
   goToContact(){}
 

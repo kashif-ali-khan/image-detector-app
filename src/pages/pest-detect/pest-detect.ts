@@ -34,7 +34,8 @@ export class PestDetectPage {
   }
 
   constructor(private alertCtrl:AlertController,private camera: Camera,public navCtrl: NavController, public navParams: NavParams,public loadingCtrl: LoadingController,private service:Service) {
-   
+    let data = navParams.get('param');
+    console.log(data);
   }
 
   
