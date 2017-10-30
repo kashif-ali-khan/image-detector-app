@@ -12,7 +12,7 @@ export class Service{
         constructor(private http: Http){
 	}
 
-    private url:string = "http://10.193.74.178:5000/";
+    private url:string = "http://10.193.74.111:5000/";
 
    getResponse(body: Object) : Observable<any> {
 

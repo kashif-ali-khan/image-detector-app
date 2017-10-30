@@ -1,8 +1,9 @@
 import { Service } from './../../service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController,AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController,AlertController,ModalController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import {Observable} from 'rxjs/Rx';
+import { WeedDetectPage } from '../weed-detect/weed-detect';
 
 /**
  * Generated class for the PestDetectPage page.
@@ -23,7 +24,8 @@ export class PestDetectPage {
   imagePath:string;
   base64Image:string;
   pestResponse:any;
-  showResponse:boolean
+  showResponse:boolean;
+  weedpage:WeedDetectPage;
 
    options: CameraOptions = {
     quality: 50,
@@ -34,7 +36,7 @@ export class PestDetectPage {
     correctOrientation: true
   }
 
-  constructor(private alertCtrl:AlertController,private camera: Camera,public navCtrl: NavController, public navParams: NavParams,public loadingCtrl: LoadingController,private service:Service) {
+  constructor(private modalctrl:ModalController,private alertCtrl:AlertController,private camera: Camera,public navCtrl: NavController, public navParams: NavParams,public loadingCtrl: LoadingController,private service:Service) {
     this.data = navParams.get('param');
     console.log(this.data);
   }
@@ -91,43 +93,39 @@ let response:Observable<Comment[]>;
 
   doOperation(operation:string){
     
-    let options = {
-      title: 'Login',
-      inputs: [
-        {
-          name: 'username',
-          placeholder: 'Username'
-        },
-        {
-          name: 'password',
-          placeholder: 'Password',
-          type: 'password'
-        }
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          handler: data => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Submit',
-          handler: data => {
+    // let options = {
+    //   title: 'Login',
+    //   inputs: [
+    //     {
+    //       name: 'username',
+    //       placeholder: 'Username',
+    //       type:'textarea'
+    //     },
+    //     {
+    //       name: 'password',
+    //       placeholder: 'Password',
+    //       type: 'password'
+    //     }
+    //   ],
+    //   buttons: [
+    //     {
+    //       text: 'Cancel',
+    //       role: 'cancel',
+    //       handler: data => {
+    //         console.log('Cancel clicked');
+    //       }
+    //     },
+    //     {
+    //       text: 'Submit',
+    //       handler: data => {
          
-          }
-        }
-      ]
-    }
-
-    if(operation == 'buy'){
-      options.title = "Buy This"
-    }else{
-      options.title = "Submit this "+this.data+" to Agronomist"
-    }
-    
-      const alert = this.alertCtrl.create(options);
+    //       }
+    //     }
+    //   ]
+    // }
+  var  options = {title:operation,type:this.data};
+     
+      const alert = this.modalctrl.create(WeedDetectPage,options);
       alert.present();
    
 
