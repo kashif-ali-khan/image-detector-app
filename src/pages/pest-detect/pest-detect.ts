@@ -19,6 +19,7 @@ import {Observable} from 'rxjs/Rx';
 })
 
 export class PestDetectPage {
+  data: any;
   imagePath:string;
   base64Image:string;
   pestResponse:any;
@@ -34,8 +35,8 @@ export class PestDetectPage {
   }
 
   constructor(private alertCtrl:AlertController,private camera: Camera,public navCtrl: NavController, public navParams: NavParams,public loadingCtrl: LoadingController,private service:Service) {
-    let data = navParams.get('param');
-    console.log(data);
+    this.data = navParams.get('param');
+    console.log(this.data);
   }
 
   
@@ -123,7 +124,7 @@ let response:Observable<Comment[]>;
     if(operation == 'buy'){
       options.title = "Buy This"
     }else{
-      options.title = "Submit this pest to Agronomist"
+      options.title = "Submit this "+this.data+" to Agronomist"
     }
     
       const alert = this.alertCtrl.create(options);
