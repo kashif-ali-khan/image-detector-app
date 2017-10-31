@@ -1,0 +1,50 @@
+{
+    "info": [
+      {
+        "earlyblightalternariasolani": {
+          "details": "Early blight caused by a fungus, Alternaria solani, which over-winters in the soil and infected plants",
+          "recomendations": "Organic - Copper spray, biofungicide like Serenade.",
+          "title":"Disease - Early blight",
+          "chemical":"Funginol, Daconil"
+        }
+      },
+      {
+        "lateblightphytophthorainfestans": {
+          "details": "Late blight caused by a fungus, Phytophthora infestans, which also affects potatoes",
+          "recomendations": "Organic - Copper spray, biofungicide like Serenade.",
+          "chemical":"Funginol, Daconil",
+          "title":"Disease - Late blight"
+        }
+      },
+      {
+        "phytophthora blight": {
+          "details": "Late blight caused by a fungus, Phytophthora infestans, which also affects potatoes",
+          "recomendations": "Organic - Copper spray, biofungicide like Serenade.",
+          "chemical":"Funginol, Daconil",
+          "title":"Disease - Late blight"
+        }
+      },
+      {
+        "septoria leaf spot tomato": {
+          "details": "Septoria leaf spot caused by a fungus, Septoria lycopersici",
+          "recomendations": "Organic - Copper spray, biofungicide like Serenade.",
+          "chemical":"Funginol, Daconil",
+          "title":"Septoria Leaf Spot "
+        }
+      },
+      {
+        "southern blight": {
+          "details": "",
+          "recomendations": "",
+          "chemical":"Funginol, Daconil",
+          "title":"Disease - Late blight"
+        }
+      }
+    ],
+   
+    "not-found": {
+      "details": "Could not assert the pest/ weed, please submit to Agronomist for expert analysis.",
+      "recomendations": "",
+      "title":"No Detail found for this"
+    }
+  }
