@@ -54,9 +54,9 @@ export class PestDetectPage {
 
   }
 
-  calculateProb(){
-    var vals = _.values(this.pestResponse);
-    var pestName = _.keys(this.pestResponse);
+  calculateProb(response){
+    var vals = _.values(response);
+    var pestName = _.keys(response);
     let maxValue = _.max(vals);
     this.maxPestName = pestName[vals.indexOf(maxValue)];
     var sortedList = _.sortBy(vals,function(val){return -val;})
@@ -110,7 +110,7 @@ let response:Observable<Comment[]>;
                                 response => {
                                     // Emit list event
                                     console.log(response);
-                                    this.calculateProb();
+                                    this.calculateProb(response);
                                    
 
 
