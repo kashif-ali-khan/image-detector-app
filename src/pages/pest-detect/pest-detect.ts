@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams, LoadingController,AlertController,
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import {Observable} from 'rxjs/Rx';
 import { WeedDetectPage } from '../weed-detect/weed-detect';
+import * as _ from 'lodash';
 
 /**
  * Generated class for the PestDetectPage page.
@@ -15,19 +16,18 @@ import { WeedDetectPage } from '../weed-detect/weed-detect';
 @IonicPage()
 @Component({
   selector: 'page-pest-detect',
-  templateUrl: 'pest-detect.html',
-  providers: [Service]
+  templateUrl: 'pest-detect.html'
+
 })
 
 export class PestDetectPage {
+  infoObject: any;
   data: any;
   imagePath:string;
   base64Image:string;
   pestResponse:any;
   showResponse:boolean;
-  weedpage:WeedDetectPage;
-
-   options: CameraOptions = {
+  options: CameraOptions = {
     quality: 50,
     destinationType: this.camera.DestinationType.DATA_URL,
     targetHeight: 400,
@@ -35,10 +35,49 @@ export class PestDetectPage {
     mediaType: this.camera.MediaType.PICTURE,
     correctOrientation: true
   }
+  dummyResponse = {
+  "earlyblightalternariasolani":"0.203176",
+  "lateblightphytophthorainfestans":"0.28571",
+  "phytophthora blight":"0.139711",
+  "septoria leaf spot tomato":"0.23",
+  "southern blight":"0.234547"
+  }
+  foundPest:any;
+  maxPestName:string="";
 
   constructor(private modalctrl:ModalController,private alertCtrl:AlertController,private camera: Camera,public navCtrl: NavController, public navParams: NavParams,public loadingCtrl: LoadingController,private service:Service) {
     this.data = navParams.get('param');
     console.log(this.data);
+    this.infoObject = this.service.getInfoObject();
+    //this.calculateProb();
+
+
+  }
+
+  calculateProb(){
+    var vals = _.values(this.pestResponse);
+    var pestName = _.keys(this.pestResponse);
+    let maxValue = _.max(vals);
+    this.maxPestName = pestName[vals.indexOf(maxValue)];
+    var sortedList = _.sortBy(vals,function(val){return -val;})
+     if(parseFloat(maxValue)>0.5){
+     this.foundPest = _.find(this.infoObject.info,key=>{
+      return _.keys(key)[0] == this.maxPestName
+      });
+      
+          }else if(parseFloat(sortedList[0])>0.35 && (parseFloat(sortedList[0])<0.49)){
+            this.maxPestName = pestName[vals.indexOf(sortedList[0])];
+            this.foundPest = _.find(this.infoObject.info,key=>{
+              return _.keys(key)[0] == this.maxPestName
+              });
+
+
+          }else{
+            this.foundPest = this.infoObject;
+            this.maxPestName = "not-found";
+
+          }
+          console.log(this.foundPest);
   }
 
   
@@ -71,6 +110,10 @@ let response:Observable<Comment[]>;
                                 response => {
                                     // Emit list event
                                     console.log(response);
+                                    this.calculateProb();
+                                   
+
+
                                     this.showResponse = true
                                     this.pestResponse = response;
                                     loading.dismiss();

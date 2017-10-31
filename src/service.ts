@@ -9,6 +9,7 @@ import 'rxjs/add/operator/map';
 
 export class Service{
 
+    infoObject:any;
         constructor(private http: Http){
 	}
 
@@ -26,6 +27,20 @@ export class Service{
                          .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
       
 
+     }
+
+     loadJson():Observable<any>{
+         return this.http.get("assets/json/test-data.json")
+         .map(res => res.json())
+         .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+
+     }
+     setInfoObject(dataObject:any){
+         this.infoObject = dataObject;
+     }
+
+     getInfoObject(){
+         return this.infoObject;
      }
 
 }

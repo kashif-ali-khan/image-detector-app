@@ -52,9 +52,12 @@
 <ion-card>
    <img class="pest-image" *ngIf="base64Image" [src]="base64Image"/>
     <ion-card-content class="pest-content-title">
-      <ion-card-title>
-         This pest identifies as <span class="pest-title"> Septoria Leaf Spot tomato</span>
+      <ion-card-title *ngIf="maxPestName!='not-found'">
+         This pest identifies as <span class="pest-title">{{foundPest[maxPestName].title}}</span>
       </ion-card-title>
+      <ion-card-title *ngIf="maxPestName=='not-found'">
+          <span class="pest-title">{{foundPest[maxPestName].title}}</span>
+       </ion-card-title>
       <p>
           
       </p>
@@ -67,20 +70,18 @@
             Description
          </ion-card-title>
          <p>
-            Septoria leaf spot caused by a fungus, Septoria lycopersici.   
+            {{foundPest[maxPestName].details}}
          </p>
        </ion-card-content>
      </ion-card>
      <ion-card>
       
-         <ion-card-content class="pest-content">
+         <ion-card-content class="pest-content" *ngIf="maxPestName!='not-found'"> 
            <ion-card-title>
               Recomendation
            </ion-card-title>
            <p>
-              Treatment - 
-              Organic - Copper spray, biofungicide like Serenade.
-              Chemical - Funginol, Daconil
+              {{foundPest[maxPestName].recomendations}}
            </p>
          </ion-card-content>
        </ion-card>
@@ -96,10 +97,10 @@
 </ion-content>
 <ion-footer *ngIf="showResponse == true">
     <ion-toolbar>
-        <div class="col buy-to">
+        <div class="col buy-to" *ngIf="maxPestName!='not-found'">
             <span class="button button-assertive " (click)="doOperation('buy')">Buy It</span>
         </div>
-        <div class="col submit-to">
+        <div class="col submit-to" [ngClass]="{'full-wid':maxPestName=='not-found'}">
             <span class="button button-dark " (click)="doOperation('submit')">Submit to Agronimist</span>
         </div>
     </ion-toolbar>

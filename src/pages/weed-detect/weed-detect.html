@@ -19,7 +19,7 @@
     </ion-title>
   </ion-navbar>
 
-  <ion-content class="page3" ngClass="{'page-cart':(operation=='but')}">
+  <ion-content class="page3" [ngClass]="{'page-cart':(operation=='buy'),'page-submit':(operation=='submit')}">
 
     <div *ngIf="operation=='buy'">
         <img src="assets/images/screen-cart.png" alt="Logo" >
