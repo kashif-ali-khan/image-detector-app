@@ -60,12 +60,12 @@ export class PestDetectPage {
     let maxValue = _.max(vals);
     this.maxPestName = pestName[vals.indexOf(maxValue)];
     var sortedList = _.sortBy(vals,function(val){return -val;})
-     if(parseFloat(maxValue)>0.5){
+     if(parseFloat(maxValue)>=0.5){
      this.foundPest = _.find(this.infoObject.info,key=>{
       return _.keys(key)[0] == this.maxPestName
       });
       
-          }else if(parseFloat(sortedList[0])>0.35 && (parseFloat(sortedList[0])<0.49)){
+          }else if(parseFloat(sortedList[0])>0.35 && (parseFloat(sortedList[0])<0.50)){
             this.maxPestName = pestName[vals.indexOf(sortedList[0])];
             this.foundPest = _.find(this.infoObject.info,key=>{
               return _.keys(key)[0] == this.maxPestName

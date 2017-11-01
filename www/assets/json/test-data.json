@@ -39,6 +39,14 @@
           "chemical":"Funginol, Daconil",
           "title":"Disease - Late blight"
         }
+      },
+      {
+        "tomato leaves": {
+          "details": "This is a healthy tomato plant",
+          "recomendations": "",
+          "chemical":"",
+          "title":"Healthy tomato"
+        }
       }
     ],
    
