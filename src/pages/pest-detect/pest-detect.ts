@@ -39,7 +39,7 @@ export class PestDetectPage {
   "earlyblightalternariasolani":"0.203176",
   "lateblightphytophthorainfestans":"0.28571",
   "phytophthora blight":"0.139711",
-  "septoria leaf spot tomato":"0.23",
+  "septoria leaf spot tomato":"0.53",
   "southern blight":"0.234547"
   }
   foundPest:any;
@@ -121,6 +121,9 @@ let response:Observable<Comment[]>;
                                 }, 
                                 err => {
                                     // Log errors if any
+                                    this.calculateProb(this.dummyResponse);
+                                    this.showResponse = true
+                                   this.pestResponse = this.dummyResponse;
                                     loading.dismiss();
                                     console.log('err');
                                 });
