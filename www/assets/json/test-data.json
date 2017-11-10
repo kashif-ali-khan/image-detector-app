@@ -34,8 +34,8 @@
       },
       {
         "southern blight": {
-          "details": "",
-          "recomendations": "",
+          "details": "Southern blight is caused by the soil borne fungus Sclerotium rolfsii",
+          "recomendations": "Chemical - Funginol, Daconil",
           "chemical":"Funginol, Daconil",
           "title":"Disease - Late blight"
         }
@@ -46,6 +46,22 @@
           "recomendations": "",
           "chemical":"",
           "title":"Healthy tomato"
+        }
+      },
+      {
+        "fusarium wilt tomato fusarium tomato": {
+          "details": "Fusarium wilt is a disease caused by a fungus, Fusarium oxysporum f. sp. Lycopersici, which lives in the soil.",
+          "recomendations": "There is no chemical treatment available.Destroy infected plants immediately. keep soil pH between 6.5 and 7.0 and use a nitrate-based nitrogen fertilizer",
+          "chemical":"There is no chemical treatment available.Destroy infected plants immediately. keep soil pH between 6.5 and 7.0 and use a nitrate-based nitrogen fertilizer",
+          "title":"fusarium wilt tomato fusarium tomato"
+        }
+      },
+      {
+        "mosaic virus tomato": {
+          "details": "There is no cure for tomato mosaic virus. Once a plant is infected, it stays that way, and the virus can easily be transmitted to other plants.",
+          "recomendations": "There is no cure for tomato mosaic virus. Once a plant is infected, it stays that way, and the virus can easily be transmitted to other plants.",
+          "chemical":"No chemical products are available to cure or protect plants",
+          "title":"mosaic virus tomato"
         }
       }
     ],

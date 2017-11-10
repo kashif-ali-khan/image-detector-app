@@ -44,6 +44,7 @@ export class PestDetectPage {
   }
   foundPest:any;
   maxPestName:string="";
+  healthyTomato:boolean;
 
   constructor(private modalctrl:ModalController,private alertCtrl:AlertController,private camera: Camera,public navCtrl: NavController, public navParams: NavParams,public loadingCtrl: LoadingController,private service:Service) {
     this.data = navParams.get('param');
@@ -59,13 +60,14 @@ export class PestDetectPage {
     var pestName = _.keys(response);
     let maxValue = _.max(vals);
     this.maxPestName = pestName[vals.indexOf(maxValue)];
+    this.healthyTomato = false
     var sortedList = _.sortBy(vals,function(val){return -val;})
      if(parseFloat(maxValue)>=0.5){
      this.foundPest = _.find(this.infoObject.info,key=>{
       return _.keys(key)[0] == this.maxPestName
       });
-      
-          }else if(parseFloat(sortedList[0])>0.35 && (parseFloat(sortedList[0])<0.50)){
+
+    }else if(parseFloat(sortedList[0])>0.35 && (parseFloat(sortedList[0])<0.50)){
             this.maxPestName = pestName[vals.indexOf(sortedList[0])];
             this.foundPest = _.find(this.infoObject.info,key=>{
               return _.keys(key)[0] == this.maxPestName
@@ -76,6 +78,10 @@ export class PestDetectPage {
             this.foundPest = this.infoObject;
             this.maxPestName = "not-found";
 
+          }
+
+          if(_.has(this.foundPest, 'tomato leaves')){
+            this.healthyTomato = true;
           }
           console.log(this.foundPest);
   }

@@ -36,7 +36,7 @@ export class WeedDetectPage implements OnInit {
     if(this.operation == 'buy'){
       this.display.title = "Buy This"
     }else{
-      this.display.title = "Submit this "+this.type+" to Agronomist"
+      this.display.title = "Submit to Agronomist"
     }
 
     // this.myForm = formBuilder.group({

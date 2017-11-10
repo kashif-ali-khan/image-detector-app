@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{data}} detect</ion-title>
+    <ion-title>Detect {{data}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -53,7 +53,7 @@
    <img class="pest-image" *ngIf="base64Image" [src]="base64Image"/>
     <ion-card-content class="pest-content-title">
       <ion-card-title *ngIf="maxPestName!='not-found'">
-         This pest identifies as <span class="pest-title">{{foundPest[maxPestName].title}}</span>
+         This identifies as <span class="pest-title">{{foundPest[maxPestName].title}}</span>
       </ion-card-title>
       <ion-card-title *ngIf="maxPestName=='not-found'">
           <span class="pest-title">{{foundPest[maxPestName].title}}</span>
@@ -97,7 +97,7 @@
 </ion-content>
 <ion-footer *ngIf="showResponse == true">
     <ion-toolbar>
-        <div class="col buy-to" *ngIf="maxPestName!='not-found'">
+        <div class="col buy-to" *ngIf="maxPestName!='not-found' && healthyTomato != true">
             <span class="button button-assertive " (click)="doOperation('buy')">Buy It</span>
         </div>
         <div class="col submit-to" [ngClass]="{'full-wid':maxPestName=='not-found'}">
