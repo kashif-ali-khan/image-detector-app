@@ -80,7 +80,7 @@ export class PestDetectPage {
 
           }
 
-          if(_.has(this.foundPest, 'tomato leaves')){
+          if(_.has(this.foundPest, 'tomato leaves') ||_.has(this.foundPest, 'eggplant leaves')){
             this.healthyTomato = true;
           }
           console.log(this.foundPest);

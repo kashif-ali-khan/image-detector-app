@@ -13,7 +13,8 @@ export class Service{
         constructor(private http: Http){
 	}
 
-    private url:string = "http://10.193.74.78:5000/";
+    // private url:string = "http://192.168.253.108:5000/";For Ritz-Carlton
+    private url:string = "http://10.5.50.156:5000/";
 
    getResponse(body: Object) : Observable<any> {
 
