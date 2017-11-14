@@ -95,12 +95,12 @@
 
 
 </ion-content>
-<ion-footer *ngIf="showResponse == true">
+<ion-footer *ngIf="showResponse == true" style="background-color: #488aff !important">
     <!-- <ion-toolbar> -->
         <div class="col buy-to" style="background-color: #488aff !important; color:#fff;line-height: 1.5em;bottom:1px" *ngIf="maxPestName!='not-found' && healthyTomato != true">
             <span class="button button-assertive " (click)="doOperation('buy')">Buy It</span>
         </div>
-        <div class="col submit-to" style="background-color: #488aff !important; color:#fff;line-height: 1.5em;bottom:1px" [ngClass]="{'full-wid':maxPestName=='not-found'}">
+        <div class="col submit-to" style="background-color: #488aff !important; color:#fff;line-height: 1.5em;bottom:1px" [ngClass]="{'full-wid':maxPestName=='not-found'||alignCenter==true}">
             <span class="button button-dark " (click)="doOperation('submit')">Submit to Agronimist</span>
         </div>
     <!-- </ion-toolbar> -->

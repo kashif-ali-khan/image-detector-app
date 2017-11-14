@@ -45,6 +45,7 @@ export class PestDetectPage {
   foundPest:any;
   maxPestName:string="";
   healthyTomato:boolean;
+  alignCenter:boolean
 
   constructor(private modalctrl:ModalController,private alertCtrl:AlertController,private camera: Camera,public navCtrl: NavController, public navParams: NavParams,public loadingCtrl: LoadingController,private service:Service) {
     this.data = navParams.get('param');
@@ -61,6 +62,7 @@ export class PestDetectPage {
     let maxValue = _.max(vals);
     this.maxPestName = pestName[vals.indexOf(maxValue)];
     this.healthyTomato = false
+    this.alignCenter = false
     var sortedList = _.sortBy(vals,function(val){return -val;})
      if(parseFloat(maxValue)>=0.5){
      this.foundPest = _.find(this.infoObject.info,key=>{
@@ -82,6 +84,7 @@ export class PestDetectPage {
 
           if(_.has(this.foundPest, 'tomato leaves') ||_.has(this.foundPest, 'eggplant leaves')){
             this.healthyTomato = true;
+            this.alignCenter = true
           }
           console.log(this.foundPest);
   }
