@@ -1,0 +1,90 @@
+{
+  "info": [
+    {
+      "earlyblightalternariasolani": {
+        "details": "Early Blight is caused by a fungus, Alternaria Solani, which over-winters in the soil and infected plants.",
+        "recomendations": "Organic - Copper spray, Biofungicide - Serenade.",
+        "title":"Disease - Early blight",
+        "chemical":"Funginol, Daconil"
+      }
+    },
+    {
+      "lateblightphytophthorainfestans": {
+        "details": "Late Blight is caused by a fungus, Phytophthora Infestans, which also affects potatoes.",
+        "recomendations": "Organic - Copper spray, Biofungicide - Serenade.",
+        "chemical":"Funginol, Daconil",
+        "title":"Disease - Late Blight"
+      }
+    },
+    {
+      "phytophthora blight": {
+        "details": "Late Blight is caused by a fungus, Phytophthora Infestans, which also affects potatoes.",
+        "recomendations": "Organic - Copper spray, Biofungicide - Serenade.",
+        "chemical":"Funginol, Daconil",
+        "title":"Disease - Phytophthora Blight"
+      }
+    },
+    {
+      "septoria leaf spot tomato": {
+        "details": "Septoria leaf spot is caused by a fungus, Septoria Lycopersici.",
+        "recomendations": "Organic - Copper spray, Biofungicide - Serenade.",
+        "chemical":"Funginol, Daconil",
+        "title":"Septoria Leaf Spot "
+      }
+    },
+    {
+      "southern blight": {
+        "details": "Southern Blight is caused by the soil borne fungus Sclerotium Rolfsii",
+        "recomendations": "Chemical - Funginol, Daconil",
+        "chemical":"Funginol, Daconil",
+        "title":"Disease - Southern Blight"
+      }
+    },
+    {
+      "tomato leaves": {
+        "details": "This is a healthy Tomato plant",
+        "recomendations": "NA",
+        "chemical":"",
+        "title":"Healthy Tomato"
+      }
+    },
+    {
+      "fusarium wilt tomato fusarium tomato": {
+        "details": "Fusarium wilt is a disease caused by a fungus, Fusarium oxysporum f. sp. Lycopersici, which lives in the soil.",
+        "recomendations": "There is no chemical treatment available. Destroy infected plants immediately. Keep soil pH between 6.5 and 7.0 and use a nitrate-based nitrogen fertilizer.",
+        "chemical":"There is no chemical treatment available. Destroy infected plants immediately. Keep soil pH between 6.5 and 7.0 and use a nitrate-based nitrogen fertilizer.",
+        "title":"Fusarium Wilt Tomato"
+      }
+    },
+    {
+      "caterpillardamageeggplant": {
+        "details": "Caterpillar damage that strips the foliage from eggplants, which interferes with proper growth.",
+        "recomendations": "Spinosad - It is used to control a wide variety of pests. These include thrips, leafminers, spider mites, mosquitoes, ants, fruit flies and others.",
+        "chemical":"Spinosad",
+        "title":"Caterpillar damage - Eggplant"
+      }
+    },
+    {
+      "eggplant leaves": {
+        "details": "This is a healthy Brinjal plant",
+        "recomendations": "NA",
+        "chemical":"",
+        "title":"Healthy Brinjal"
+      }
+    },
+    {
+      "mosaic virus tomato": {
+        "details": "There is no cure for tomato mosaic virus. Once a plant is infected, it stays that way, and the virus can easily be transmitted to other plants.",
+        "recomendations": "No chemical products are available to cure or protect plants.",
+        "chemical":"No chemical products are available to cure or protect plants",
+        "title":"Mosaic Virus Tomato"
+      }
+    }
+  ],
+
+  "not-found": {
+    "details": "Could not assert the pest/ weed, please submit to Agronomist for expert analysis.",
+    "recomendations": "",
+    "title":"Sorry, we were unable to find any details for this selection."
+  }
+}

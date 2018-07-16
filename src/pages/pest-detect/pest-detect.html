@@ -7,26 +7,101 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>pest-detect</ion-title>
+    <ion-title>Detect {{data}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-THis is pest detect screen
+    
 
-<div>
+    <ion-card class="ion-card-pest">
+        
+         
+        
+          <ion-card-content>
+            <!-- Add card content here! -->
+            Please pick a picture to identify {{data}} and get expert suggestion
+          </ion-card-content>
+        
+        </ion-card>
 
-  <button class="btn-primary" (click)="openCamera()">Take Picture</button>
+
+
+<div class="buttons-div">
+    <button ion-button icon-right block (click)="openCamera()">
+        Take Picture
+        <ion-icon ios="ios-camera" md="md-camera"></ion-icon>
+      </button>
+
+      <button ion-button icon-right block (click)="openCamera(true)">
+          Choose Picture
+          <ion-icon ios="ios-image" md="md-image"></ion-icon>
+        </button>
+
+
+  <!-- <button class="btn-primary" (click)="openCamera()">Take Picture</button>
   
-    <button class="btn-primary" (click)="openCamera(true)">Choose Picture</button>
+    <button class="btn-primary" (click)="openCamera(true)">Choose Picture</button> -->
 
 </div>
+<div class="pest-sub-content" *ngIf="showResponse == true">
+
+
+<ion-card>
+   <img class="pest-image" *ngIf="base64Image" [src]="base64Image"/>
+    <ion-card-content class="pest-content-title">
+      <ion-card-title *ngIf="maxPestName!='not-found'">
+         This identifies as <span class="pest-title">{{foundPest[maxPestName].title}}</span>
+      </ion-card-title>
+      <ion-card-title *ngIf="maxPestName=='not-found'">
+          <span class="pest-title">{{foundPest[maxPestName].title}}</span>
+       </ion-card-title>
+      <p>
+          
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+     
+       <ion-card-content class="pest-content">
+         <ion-card-title>
+            Description
+         </ion-card-title>
+         <p>
+            {{foundPest[maxPestName].details}}
+         </p>
+       </ion-card-content>
+     </ion-card>
+     <ion-card>
+      
+         <ion-card-content class="pest-content" *ngIf="maxPestName!='not-found'"> 
+           <ion-card-title>
+              Recomendation
+           </ion-card-title>
+           <p>
+              {{foundPest[maxPestName].recomendations}}
+           </p>
+         </ion-card-content>
+       </ion-card>
+       </div>
+   
+
+
+
   
-
-
-  <img *ngIf="base64Image" [src]="base64Image"/>
+  <!-- <div>{{pestResponse}}</div> -->
 
 
 </ion-content>
+<ion-footer *ngIf="showResponse == true" style="background-color: #488aff !important">
+    <!-- <ion-toolbar> -->
+        <div class="col buy-to" style="background-color: #488aff !important; color:#fff;line-height: 1.5em;bottom:1px" *ngIf="maxPestName!='not-found' && healthyTomato != true">
+            <span class="button button-assertive " (click)="doOperation('buy')">Buy It</span>
+        </div>
+        <div class="col submit-to" style="background-color: #488aff !important; color:#fff;line-height: 1.5em;bottom:1px" [ngClass]="{'full-wid':maxPestName=='not-found'||alignCenter==true}">
+            <span class="button button-dark " (click)="doOperation('submit')">Submit to Agronimist</span>
+        </div>
+    <!-- </ion-toolbar> -->
+  </ion-footer>

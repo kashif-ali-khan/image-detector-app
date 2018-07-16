@@ -1,3 +1,68 @@
 page-pest-detect {
+    .scroll-content{
+        padding: 0px !important;
+    }
+    .card-title-md{
+        font-size: 1.8rem !important;
+
+    }
+    .buttons-div{
+        margin: 10px;
+    }
+    .ion-card-pest{
+         background: color($colors, appgreen);
+         color:white;
+         font-size: 15px;
+         font-weight: bold;
+    }
+    .pest-content-title{
+        padding: 0px 16px;
+        font-size: 1.6rem;
+        float: left;
+        display: inline-block;
+        width: 70%;
+
+    }
+    .full-wid{
+        width: 100% !important;
+    }
+    .pest-content{
+        padding: 0px 16px;
+        font-size: 1.6rem;
+        
+       
+        
+            }
+            .pest-sub-content{
+                background: color($colors, appgreen);
+                padding-top: 6px;
+                padding-bottom:6px;
+                margin: 10px;
+                height: 80%;
+                position: absolute;
+                overflow: scroll;
+            }
+            .pest-title{
+                font-weight: bold;
+            }
+            .pest-image{
+                width: 30%;
+                height: 100px;
+                float: left;
+                clear: both;
+                display: inline-block;
+                padding: 6px;
+            }
+            .submit-to,.buy-to{
+                width: 50%;
+                float: left;
+                display: block;
+                text-align: center;
+               
+            }
+            .submit-to{
+                border-left: 1px solid lightgrey;
+            }
+
 
 }

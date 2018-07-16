@@ -1,5 +1,5 @@
 <ion-header class="header-height">
-  <ion-navbar align-title="center">
+  <ion-navbar align-title="center" style="text-align:center">
     <ion-title>
      Home
     </ion-title>
@@ -11,10 +11,10 @@
 
 
    <ul class="main-content">
-     <li class="li-height bg1" [navPush]="weeddetect"><div class="text-app">Identify Weed</div> <div class="arrow-icon"></div></li>
-     <li class="li-height bg2" [navPush]="pestdetect"><div class="text-app">Identify Pest</div> <div class="arrow-icon"></div></li>
-     <li class="li-height bg3" [navPush]="aboutPage"><div class="text-app">About Us</div> <div class="arrow-icon"></div></li>
-     <li class="li-height bg4" [navPush]="contactus"><div class="text-app">Contact Us</div> <div class="arrow-icon"></div></li>
+     <li class="li-height bg1" (click)="redirect(1)"  ><div class="text-app">Identify Weed</div> <div class="arrow-icon"></div></li>
+     <li class="li-height bg2" (click)="redirect(2)" ><div class="text-app">Identify Pest</div> <div class="arrow-icon"></div></li>
+     <li class="li-height bg3" (click)="redirect(3)" ><div class="text-app">About Us</div> <div class="arrow-icon"></div></li>
+     <li class="li-height bg4" (click)="redirect(4)" ><div class="text-app">Contact Us</div> <div class="arrow-icon"></div></li>
    </ul>
   
 

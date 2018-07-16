@@ -12,6 +12,7 @@ import { PestDetectPageModule } from '../pages/pest-detect/pest-detect.module';
 import { WeedDetectPageModule } from '../pages/weed-detect/weed-detect.module';
 import { Camera } from '@ionic-native/camera';
 import { HttpModule } from '@angular/http';
+import { Service } from '../service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { HttpModule } from '@angular/http';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Camera
+    Camera,
+    Service
   ]
 })
 export class AppModule {}
